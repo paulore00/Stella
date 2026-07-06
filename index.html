@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Arpie</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Palcoscenico 16:9 -->
+<main id="stage" aria-label="Scena del giorno">
+  <img id="scene" alt="" draggable="false">
+  <div id="object-layers"></div>
+
+  <!-- Vignetta di dialogo stile gioco -->
+  <div id="dialogue" class="hidden">
+    <div id="dialogue-face">
+      <img id="face-img" alt="" draggable="false">
+      <span id="speaker-name"></span>
+    </div>
+    <div id="dialogue-text-wrap">
+      <p id="dialogue-text"></p>
+      <span id="advance-arrow" aria-hidden="true">&#9660;</span>
+    </div>
+  </div>
+
+  <!-- Frecce di navigazione fra le giornate -->
+  <button id="nav-prev" class="nav-arrow hidden" aria-label="Giornata precedente">&#10094;</button>
+  <button id="nav-next" class="nav-arrow hidden" aria-label="Giornata successiva">&#10095;</button>
+
+  <!-- Pulsante archivio -->
+  <button id="archive-btn" title="Giorni passati">&#10032;</button>
+</main>
+
+<!-- Overlay contenuto oggetto -->
+<div id="overlay" class="hidden" role="dialog" aria-modal="true">
+  <div id="overlay-panel">
+    <button id="overlay-close" aria-label="Chiudi">&times;</button>
+    <div id="overlay-content"></div>
+  </div>
+</div>
+
+<!-- Overlay archivio -->
+<div id="archive" class="hidden" role="dialog" aria-modal="true">
+  <div id="archive-panel">
+    <button id="archive-close" aria-label="Chiudi">&times;</button>
+    <h2>I giorni passati</h2>
+    <ul id="archive-list"></ul>
+  </div>
+</div>
+
+<!-- Prompt rotazione su mobile verticale -->
+<div id="rotate-prompt">
+  <div class="rotate-star">&#10022;</div>
+  <p>Ruota il telefono!</p>
+</div>
+
+<!-- Messaggio se non c'è nessun giorno -->
+<div id="empty-state" class="hidden">
+  <p>Oggi non c'&egrave; nessuno in casa&hellip; torna presto!</p>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

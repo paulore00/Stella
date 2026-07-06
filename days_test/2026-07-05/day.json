@@ -1,0 +1,25 @@
+{
+  "scene": "scene.png",
+  "dialogue": [
+    { "speaker": "stella", "text": "Oh, ciao! Sei arrivatə giusto in tempo: ho appena finito di riordinare. Più o meno." },
+    { "speaker": "stella", "text": "Le altre sono fuori a caccia di ispirazione. Una chiacchierata tra amiche, una passeggiata... sai come funzioniamo noi Arpie." },
+    { "speaker": "suz", "text": "STELLA! Hai visto dove ho messo le mie riviste?! Erano in ordine per colore!" },
+    { "speaker": "stella", "text": "...ehm. Senti, facciamo così: dai un'occhiata in giro. Se trovi qualcosa di interessante, resta tra noi." }
+  ],
+  "objects": [
+    {
+      "id": "manifesto",
+      "image": "obj-manifesto.png",
+      "overlay": {
+        "html": "<h2>Manifesto</h2><p>Arpie vede il design come possibilità: di sperimentare, di crescere, di apprendere, di evolvere.</p><p>L'ispirazione può trovarsi ovunque, in una chiacchierata tra amiche, durante una passeggiata, in mezzo alla terra o in alto tra le nuvole.</p>"
+      }
+    },
+    {
+      "id": "riviste",
+      "image": "obj-riviste.png",
+      "overlay": {
+        "html": "<h2>Le riviste di Suz</h2><p>Erano in ordine per colore, giura. Dentro c'è un po' di tutto: identità visive, editoria, illustrazioni.</p><p>Qui un giorno ci finirà un progetto vero del portfolio — con immagini: <code>&lt;img src=\"days/2026-07-05/foto.jpg\"&gt;</code>.</p>"
+      }
+    }
+  ]
+}

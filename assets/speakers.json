@@ -1,0 +1,10 @@
+{
+  "stella": {
+    "name": "stella",
+    "face": "assets/faces/stella.png"
+  },
+  "suz": {
+    "name": "suz",
+    "face": "assets/faces/suz.png"
+  }
+}
