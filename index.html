@@ -14,17 +14,19 @@
   <img id="scene" alt="" draggable="false">
   <div id="object-layers"></div>
 
-  <!-- Vignetta di dialogo stile gioco -->
+  <!-- Vignetta di dialogo: box PNG per personaggio + testo scorrevole sopra -->
   <div id="dialogue" class="hidden">
-    <div id="dialogue-face">
-      <img id="face-img" alt="" draggable="false">
-      <span id="speaker-name"></span>
-    </div>
-    <div id="dialogue-text-wrap">
-      <p id="dialogue-text"></p>
-      <span id="advance-arrow" aria-hidden="true">&#9660;</span>
-    </div>
+    <img id="speak-box" alt="" draggable="false">
+    <p id="dialogue-text"></p>
+    <span id="advance-arrow" aria-hidden="true">&#9660;</span>
   </div>
+
+  <!-- Riquadro "fine discorso": compare quando Stella ha finito di parlare -->
+  <img id="speech-end" class="hidden" alt="" draggable="false">
+
+  <!-- Elementi legacy nascosti (il box PNG contiene già icona e nome) -->
+  <img id="face-img" class="hidden" alt="">
+  <span id="speaker-name" class="hidden"></span>
 
   <!-- Frecce di navigazione fra le giornate -->
   <button id="nav-prev" class="nav-arrow hidden" aria-label="Giornata precedente">&#10094;</button>

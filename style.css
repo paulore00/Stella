@@ -3,6 +3,14 @@
    Sfondo a righe gialle + accenti viola dall'art direction.
    ============================================================ */
 
+/* font del progetto (icona/nome/riquadri sono già nei PNG,
+   questo serve al testo che scorre e ai contenuti dinamici) */
+@font-face {
+  font-family: "StellaDaily";
+  src: url("assets/STELLADAILY-REGULAR.TTF") format("truetype");
+  font-display: swap;
+}
+
 :root {
   --giallo: #faf6c8;
   --riga: #ded173;
@@ -10,7 +18,7 @@
   --blu: #2b3a8f;
   --nero: #1a1a1a;
   --carta: #fffdf4;
-  --font-dialogo: "Courier New", ui-monospace, monospace;
+  --font-dialogo: "StellaDaily", "Courier New", ui-monospace, monospace;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -57,78 +65,61 @@ html, body {
   pointer-events: none; /* i click li gestisce lo stage con l'alpha test */
 }
 
-/* ---------- vignetta di dialogo ---------- */
+/* oggetti: leggero ingrandimento al passaggio del mouse.
+   L'origine dello scale la imposta il motore (centroide dell'oggetto). */
+#object-layers img {
+  transition: transform .18s ease;
+  will-change: transform;
+}
+#object-layers img.hovered {
+  transform: scale(1.09);
+}
+
+/* ---------- vignetta di dialogo (box PNG per personaggio) ---------- */
 #dialogue {
   position: absolute;
-  left: 3%;
-  right: 3%;
-  bottom: 4%;
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-  background: var(--carta);
-  border: 3px solid var(--nero);
-  border-radius: 14px;
-  box-shadow: 4px 4px 0 rgba(0,0,0,.35);
-  min-height: 22%;
-  max-height: 30%;
-  cursor: pointer;
+  inset: 0;
   z-index: 20;
+  cursor: pointer;
 }
 
-#dialogue-face {
-  flex: 0 0 auto;
-  width: 13%;
-  min-width: 84px;
-  border-right: 3px solid var(--nero);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: .5em .4em;
-  background: var(--giallo);
-  border-radius: 11px 0 0 11px;
+#speak-box,
+#speech-end {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none; /* i click passano allo stage/oggetti */
 }
 
-#face-img {
-  width: 78%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border: 2px solid var(--nero);
-  border-radius: 8px;
-  background: #fff;
-}
+#speech-end { z-index: 18; }
 
-#speaker-name {
-  margin-top: .35em;
-  font-size: clamp(.55rem, 1.4vmin, .85rem);
-  font-weight: bold;
-  color: var(--viola);
-  text-transform: lowercase;
-  letter-spacing: .05em;
-}
-
-#dialogue-text-wrap {
-  flex: 1 1 auto;
-  position: relative;
-  padding: 1em 2.2em 1em 1.2em;
-  display: flex;
-  align-items: center;
-}
-
+/* testo che scorre dentro l'area interna del box (misurata dal PNG) */
 #dialogue-text {
-  font-size: clamp(.8rem, 2.2vmin, 1.25rem);
-  line-height: 1.5;
+  position: absolute;
+  left: 20.5%;
+  right: 4.5%;
+  top: 78%;
+  bottom: 6%;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-dialogo);
+  font-size: clamp(.75rem, 2vmin, 1.2rem);
+  line-height: 1.35;
+  color: var(--nero);
   white-space: pre-wrap;
+  pointer-events: none;
 }
 
 #advance-arrow {
   position: absolute;
-  right: .7em;
-  bottom: .5em;
+  right: 5.5%;
+  bottom: 6%;
   color: var(--viola);
   font-size: clamp(.7rem, 1.8vmin, 1rem);
   animation: bounce 1s infinite;
+  pointer-events: none;
 }
 
 @keyframes bounce {

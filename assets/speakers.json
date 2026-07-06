@@ -1,6 +1,7 @@
 {
   "stella": {
     "name": "stella",
+    "box": "assets/speak_tab/box_stella.png",
     "face": "assets/faces/stella.png"
   },
   "suz": {

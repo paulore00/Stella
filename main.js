@@ -3,15 +3,18 @@
    - carica le giornate da New_days/index.json
    - TUTTE le giornate sono visibili: si scorre con le frecce
      avanti / indietro (nessun blocco per data)
-   - dialogo typewriter stile gioco
+   - dialogo: box PNG per personaggio (icona+nome+area testo),
+     testo typewriter sopra l'area interna del box
+   - a fine dialogo compare fine_discorso.png e gli oggetti
+     diventano cliccabili (con ingrandimento all'hover)
    - oggetti = PNG full-frame trasparenti, click con alpha-test
-   - overlay contenuti, archivio giornate
    ============================================================ */
 
 (() => {
   "use strict";
 
   const BASE = "New_days";          // cartella dei contenuti
+  const END_IMG = "assets/fine_discorso.png";
   const TYPE_SPEED_MS = 28;         // velocità typewriter
   const ALPHA_THRESHOLD = 10;       // 0-255: sopra questa soglia il pixel è "pieno"
 
@@ -21,10 +24,10 @@
   const sceneImg = $("scene");
   const layersDiv = $("object-layers");
   const dialogueBox = $("dialogue");
-  const faceImg = $("face-img");
-  const speakerName = $("speaker-name");
+  const speakBox = $("speak-box");
   const dialogueText = $("dialogue-text");
   const advanceArrow = $("advance-arrow");
+  const speechEnd = $("speech-end");
   const overlay = $("overlay");
   const overlayContent = $("overlay-content");
   const archive = $("archive");
@@ -38,11 +41,14 @@
   let dayIndex = 0;        // giornata corrente (indice in days)
   let day = null;          // day.json corrente
   let dayPath = "";        // es. "New_days/2026-07-07/"
-  let objects = [];        // { def, ctx, w, h }
+  let objects = [];        // { def, img, ctx, w, h, cx, cy }
+  let hovered = null;      // oggetto attualmente ingrandito
   let dialogueDone = false;
   let lineIndex = -1;
   let typing = false;
   let typeTimer = null;
+
+  speechEnd.src = END_IMG;
 
   // ---------- data di oggi in Italia (YYYY-MM-DD) ----------
   function todayInItaly() {
@@ -50,7 +56,7 @@
       timeZone: "Europe/Rome",
       year: "numeric", month: "2-digit", day: "2-digit",
     });
-    return fmt.format(new Date()); // en-CA => "YYYY-MM-DD"
+    return fmt.format(new Date());
   }
 
   // ---------- avvio ----------
@@ -67,11 +73,9 @@
     }
     speakers = speakersJson;
 
-    // tutte le giornate sono visibili; si scorre con le frecce
     days = [...index.days].sort();
     if (days.length === 0) { showEmpty(); return; }
 
-    // ?day=YYYY-MM-DD per aprire direttamente una giornata
     const param = new URLSearchParams(location.search).get("day");
     const start = param && days.includes(param) ? days.indexOf(param) : 0;
 
@@ -89,7 +93,10 @@
     typing = false;
     dialogueDone = false;
     lineIndex = -1;
+    hovered = null;
     overlay.classList.add("hidden");
+    speechEnd.classList.add("hidden");
+    stage.style.cursor = "";
 
     try {
       day = await fetchJson(dayPath + "day.json");
@@ -104,7 +111,6 @@
     buildArchive();
     updateNav();
 
-    // avvia il dialogo
     dialogueText.textContent = "";
     if (day.dialogue && day.dialogue.length > 0) {
       dialogueBox.classList.remove("hidden");
@@ -157,27 +163,43 @@
         canvas.height = img.naturalHeight;
         const ctx = canvas.getContext("2d", { willReadFrequently: true });
         ctx.drawImage(img, 0, 0);
-        objects.push({ def, ctx, w: canvas.width, h: canvas.height });
+        const { cx, cy } = centroid(ctx, canvas.width, canvas.height);
+        // l'ingrandimento all'hover parte dal centro dell'oggetto
+        img.style.transformOrigin = `${cx}% ${cy}%`;
+        objects.push({ def, img, ctx, w: canvas.width, h: canvas.height });
         resolve();
       };
-      img.onerror = () => resolve(); // oggetto mancante: si va avanti
+      img.onerror = () => resolve();
       layersDiv.appendChild(img);
     }));
     return Promise.all(jobs);
   }
 
-  function hitTest(clientX, clientY) {
+  // centroide dei pixel opachi, in percentuale sul frame
+  function centroid(ctx, w, h) {
+    const data = ctx.getImageData(0, 0, w, h).data;
+    let sx = 0, sy = 0, n = 0;
+    const step = 2;
+    for (let y = 0; y < h; y += step) {
+      for (let x = 0; x < w; x += step) {
+        if (data[(y * w + x) * 4 + 3] > ALPHA_THRESHOLD) { sx += x; sy += y; n++; }
+      }
+    }
+    if (!n) return { cx: 50, cy: 50 };
+    return { cx: (sx / n) / w * 100, cy: (sy / n) / h * 100 };
+  }
+
+  function objectAt(clientX, clientY) {
     const rect = stage.getBoundingClientRect();
     const relX = (clientX - rect.left) / rect.width;
     const relY = (clientY - rect.top) / rect.height;
-    // dall'ultimo layer (sopra) al primo
     for (let i = objects.length - 1; i >= 0; i--) {
       const o = objects[i];
       const px = Math.floor(relX * o.w);
       const py = Math.floor(relY * o.h);
       if (px < 0 || py < 0 || px >= o.w || py >= o.h) continue;
       const alpha = o.ctx.getImageData(px, py, 1, 1).data[3];
-      if (alpha > ALPHA_THRESHOLD) return o.def;
+      if (alpha > ALPHA_THRESHOLD) return o;
     }
     return null;
   }
@@ -189,8 +211,7 @@
 
     const line = day.dialogue[lineIndex];
     const sp = speakers[line.speaker] || {};
-    faceImg.src = sp.face || "";
-    speakerName.textContent = sp.name || line.speaker || "";
+    if (sp.box) speakBox.src = sp.box;   // box PNG del personaggio
     advanceArrow.classList.add("hidden");
 
     typing = true;
@@ -217,8 +238,9 @@
   function finishDialogue() {
     dialogueDone = true;
     advanceArrow.classList.add("hidden");
-    // la vignetta resta con l'ultima battuta; da qui in poi
-    // gli oggetti sono cliccabili, senza alcun indizio visivo.
+    dialogueBox.classList.add("hidden");
+    speechEnd.classList.remove("hidden");   // "Se hai finito puoi anche andare..."
+    // da qui gli oggetti sono cliccabili, senza indizi oltre all'hover.
   }
 
   dialogueBox.addEventListener("click", (e) => {
@@ -229,12 +251,26 @@
     }
   });
 
-  // ---------- click sulla scena ----------
+  // ---------- click + hover sulla scena ----------
   stage.addEventListener("click", (e) => {
-    if (!dialogueDone) return;            // prima si ascolta Stella
-    const def = hitTest(e.clientX, e.clientY);
-    if (def) openOverlay(def);
+    if (!dialogueDone) return;
+    const o = objectAt(e.clientX, e.clientY);
+    if (o) openOverlay(o.def);
   });
+
+  stage.addEventListener("mousemove", (e) => {
+    if (!dialogueDone || !overlay.classList.contains("hidden")) { setHovered(null); return; }
+    setHovered(objectAt(e.clientX, e.clientY));
+  });
+  stage.addEventListener("mouseleave", () => setHovered(null));
+
+  function setHovered(o) {
+    if (o === hovered) return;
+    if (hovered) hovered.img.classList.remove("hovered");
+    hovered = o;
+    if (hovered) hovered.img.classList.add("hovered");
+    stage.style.cursor = hovered ? "pointer" : "";
+  }
 
   // ---------- overlay contenuto ----------
   async function openOverlay(def) {
@@ -248,6 +284,7 @@
       } catch (e) { html = "<p>Contenuto non trovato.</p>"; }
     }
     overlayContent.innerHTML = html;
+    setHovered(null);
     overlay.classList.remove("hidden");
   }
 
