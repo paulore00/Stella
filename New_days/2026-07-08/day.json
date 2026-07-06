@@ -3,7 +3,7 @@
   "scene": "scene.png",
   "dialogue": [
     { "speaker": "stella", "text": "Ciao! Rieccoci, haha. Oggi ho pensato di raccontarti un po' più di me e delle mie passioni attraverso 5 oggetti importantissimi per me." },
-    { "speaker": "stella", "text": "Innanzitutto la make up bag: per quando sono fuori con le mie amiche tutto il giorno e decidiamo di fare anche serata — serve ripassare il trucco! Con loro devo farmi trovare pronta a tutto, non si sa mai con che idea pazza se ne usciranno..." },
+    { "speaker": "stella", "text": "Innanzitutto la make up bag: per quando sono fuori con le mie amiche tutto il giorno e decidiamo di fare anche serata, serve ripassare il trucco! Con loro devo farmi trovare pronta a tutto, non si sa mai con che idea pazza se ne usciranno..." },
     { "speaker": "stella", "text": "Questa collanina me l'ha regalata il mio ragazzo per il nostro anniversario... non vedo l'ora di presentartelo, è un amore!" },
     { "speaker": "stella", "text": "Questa foto con mia sorella e mia mamma la porto sempre con me, come portafortuna e per ricordarmi quali sono le cose davvero importanti." },
     { "speaker": "stella", "text": "Il mio nastro da ginnastica artistica... e a proposito di famiglia: mia mamma è anche la mia personal trainer privata!" },

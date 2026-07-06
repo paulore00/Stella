@@ -53,6 +53,7 @@ html, body {
   box-shadow: 0 0 0 3px var(--nero), 0 10px 40px rgba(0,0,0,.25);
   overflow: hidden;
   user-select: none;
+  container-type: size;   /* così il testo può scalare sull'altezza del palco (cqh) */
 }
 
 #scene,
@@ -105,8 +106,8 @@ html, body {
   display: flex;
   align-items: center;
   font-family: var(--font-dialogo);
-  font-size: clamp(.75rem, 2vmin, 1.2rem);
-  line-height: 1.35;
+  font-size: clamp(1rem, 4cqh, 3rem);   /* ~45px su palco 1080: sfrutta lo spazio del box */
+  line-height: 1.25;
   color: var(--nero);
   white-space: pre-wrap;
   pointer-events: none;
