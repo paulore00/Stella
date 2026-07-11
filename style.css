@@ -128,6 +128,50 @@ html, body {
   50%      { transform: translateY(4px); }
 }
 
+/* ---------- illustrazione oggetto (si chiude cliccando ovunque) ---------- */
+#illustration {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 40;              /* sopra dialogo, fine discorso e frecce nav */
+  pointer-events: none;     /* il click lo gestisce lo stage */
+  animation: pop .18s ease-out;
+}
+
+/* ---------- logo: sempre visibile, sopra ogni schermata ---------- */
+#logo {
+  position: fixed;
+  top: 1.5vmin;
+  left: 1.5vmin;
+  z-index: 200;             /* sopra overlay, archivio, illustrazione */
+  width: clamp(90px, 14vmin, 190px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ---------- pulsante audio ---------- */
+#audio-btn {
+  position: absolute;
+  top: 2.5%;
+  right: calc(2% + clamp(34px, 5vmin, 48px) + 1%);
+  z-index: 30;
+  width: clamp(34px, 5vmin, 48px);
+  height: clamp(34px, 5vmin, 48px);
+  border: 3px solid var(--nero);
+  border-radius: 50%;
+  background: var(--carta);
+  color: var(--viola);
+  font-size: clamp(1rem, 2.6vmin, 1.5rem);
+  cursor: pointer;
+  box-shadow: 3px 3px 0 rgba(0,0,0,.3);
+  transition: transform .15s;
+}
+#audio-btn:hover { transform: scale(1.1); }
+#audio-btn.muted { opacity: .45; text-decoration: line-through; }
+
 /* ---------- pulsante archivio ---------- */
 #archive-btn {
   position: absolute;

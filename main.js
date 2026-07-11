@@ -1,6 +1,6 @@
 /* ============================================================
-   ARPIE — motore del sito
-   - carica le giornate da New_days/index.json
+   STELLA DAILY — motore del sito
+   - carica le giornate da Days/index.json (cartelle "giorno_N")
    - TUTTE le giornate sono visibili: si scorre con le frecce
      avanti / indietro (nessun blocco per data)
    - dialogo: box PNG per personaggio (icona+nome+area testo),
@@ -13,7 +13,7 @@
 (() => {
   "use strict";
 
-  const BASE = "New_days";          // cartella dei contenuti
+  const BASE = "Days";              // cartella dei contenuti
   const END_IMG = "assets/fine_discorso.png";
   const TYPE_SPEED_MS = 28;         // velocità typewriter
   const ALPHA_THRESHOLD = 10;       // 0-255: sopra questa soglia il pixel è "pieno"
@@ -30,6 +30,9 @@
   const speechEnd = $("speech-end");
   const overlay = $("overlay");
   const overlayContent = $("overlay-content");
+  const illustration = $("illustration");
+  const bgm = $("bgm");
+  const audioBtn = $("audio-btn");
   const archive = $("archive");
   const archiveList = $("archive-list");
   const navPrev = $("nav-prev");
@@ -40,7 +43,8 @@
   let days = [];           // elenco date ordinato
   let dayIndex = 0;        // giornata corrente (indice in days)
   let day = null;          // day.json corrente
-  let dayPath = "";        // es. "New_days/2026-07-07/"
+  let dayPath = "";        // es. "Days/giorno_1/"
+  let dayFolder = "";      // es. "giorno_1" — prefisso dei nomi file per convenzione
   let objects = [];        // { def, img, ctx, w, h, cx, cy }
   let hovered = null;      // oggetto attualmente ingrandito
   let dialogueDone = false;
@@ -50,13 +54,14 @@
 
   speechEnd.src = END_IMG;
 
-  // ---------- data di oggi in Italia (YYYY-MM-DD) ----------
-  function todayInItaly() {
-    const fmt = new Intl.DateTimeFormat("en-CA", {
-      timeZone: "Europe/Rome",
-      year: "numeric", month: "2-digit", day: "2-digit",
-    });
-    return fmt.format(new Date());
+  // ---------- numero ed etichetta delle giornate (cartelle "giorno_N") ----------
+  function dayNum(folder) {
+    const m = String(folder).match(/\d+/);
+    return m ? parseInt(m[0], 10) : 0;
+  }
+  function dayLabel(folder) {
+    const n = dayNum(folder);
+    return n ? "Giorno " + n : folder;
   }
 
   // ---------- avvio ----------
@@ -73,7 +78,7 @@
     }
     speakers = speakersJson;
 
-    days = [...index.days].sort();
+    days = [...index.days].sort((a, b) => dayNum(a) - dayNum(b));
     if (days.length === 0) { showEmpty(); return; }
 
     const param = new URLSearchParams(location.search).get("day");
@@ -87,6 +92,7 @@
     dayIndex = idx;
     const date = days[idx];
     dayPath = `${BASE}/${date}/`;
+    dayFolder = date;
 
     // azzera lo stato della giornata precedente
     clearInterval(typeTimer);
@@ -95,6 +101,7 @@
     lineIndex = -1;
     hovered = null;
     overlay.classList.add("hidden");
+    illustration.classList.add("hidden");
     speechEnd.classList.add("hidden");
     stage.style.cursor = "";
 
@@ -105,7 +112,9 @@
       return;
     }
 
-    sceneImg.src = dayPath + (day.scene || "scene.png");
+    // convenzione dei nomi: giorno_N_illustrazione.png, giorno_N_musica.mp3
+    sceneImg.src = dayPath + (day.scene || dayFolder + "_illustrazione.png");
+    setMusic(day.music || dayFolder + "_musica.mp3");
 
     await prepareObjects(day.objects || []);
     buildArchive();
@@ -154,7 +163,8 @@
     objects = [];
     const jobs = defs.map((def) => new Promise((resolve) => {
       const img = new Image();
-      img.src = dayPath + def.image;
+      // convenzione: giorno_N_<oggetto>.png (sovrascrivibile con "image")
+      img.src = dayPath + (def.image || dayFolder + "_" + def.id + ".png");
       img.draggable = false;
       img.alt = "";
       img.onload = () => {
@@ -251,14 +261,69 @@
     }
   });
 
+  // ---------- musica della giornata (in loop) ----------
+  let musicWanted = false;   // c'è una canzone per questa giornata
+  let musicMuted = false;    // scelta dell'utente col pulsante
+
+  function setMusic(file) {
+    if (!file) {
+      musicWanted = false;
+      bgm.pause();
+      bgm.removeAttribute("src");
+      audioBtn.classList.add("hidden");
+      return;
+    }
+    musicWanted = true;
+    bgm.src = dayPath + file;
+    audioBtn.classList.remove("hidden");
+    updateAudioBtn();
+    tryPlay();
+  }
+
+  function tryPlay() {
+    if (!musicWanted || musicMuted) return;
+    bgm.play().catch(() => { /* autoplay bloccato: riproveremo al primo gesto */ });
+  }
+
+  // i browser bloccano l'autoplay con audio: al primo gesto utile la musica parte
+  ["pointerdown", "keydown"].forEach((ev) =>
+    document.addEventListener(ev, () => tryPlay(), { passive: true })
+  );
+
+  // mp3 mancante: niente pulsante audio
+  bgm.addEventListener("error", () => {
+    musicWanted = false;
+    audioBtn.classList.add("hidden");
+  });
+
+  function updateAudioBtn() {
+    audioBtn.textContent = "♪";
+    audioBtn.classList.toggle("muted", musicMuted);
+    audioBtn.title = musicMuted ? "Riattiva la musica" : "Spegni la musica";
+  }
+
+  audioBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    musicMuted = !musicMuted;
+    if (musicMuted) bgm.pause(); else tryPlay();
+    updateAudioBtn();
+  });
+
   // ---------- click + hover sulla scena ----------
   stage.addEventListener("click", (e) => {
+    // illustrazione aperta: qualsiasi click la chiude
+    if (!illustration.classList.contains("hidden")) {
+      illustration.classList.add("hidden");
+      stage.style.cursor = "";
+      return;
+    }
     if (!dialogueDone) return;
     const o = objectAt(e.clientX, e.clientY);
     if (o) openOverlay(o.def);
   });
 
   stage.addEventListener("mousemove", (e) => {
+    if (!illustration.classList.contains("hidden")) { setHovered(null); return; }
     if (!dialogueDone || !overlay.classList.contains("hidden")) { setHovered(null); return; }
     setHovered(objectAt(e.clientX, e.clientY));
   });
@@ -274,6 +339,28 @@
 
   // ---------- overlay contenuto ----------
   async function openOverlay(def) {
+    // nuovo modello: illustrazione PNG sovrapposta alla scena.
+    // convenzione: giorno_N_illustrazione_<oggetto>.png (sovrascrivibile con overlay.image)
+    const name = (def.overlay && def.overlay.image) ||
+                 dayFolder + "_illustrazione_" + def.id + ".png";
+    const src = dayPath + name;
+    const probe = new Image();
+    probe.onload = () => {
+      illustration.src = src;
+      setHovered(null);
+      illustration.classList.remove("hidden");
+      stage.style.cursor = "pointer";   // qualsiasi click chiude
+    };
+    probe.onerror = () => openHtmlOverlay(def); // illustrazione mancante: fallback
+    probe.src = src;
+  }
+
+  async function openHtmlOverlay(def) {
+    // niente illustrazione e niente testo: il click non apre nulla
+    if (!def.overlay || (!def.overlay.html && !def.overlay.file)) {
+      console.warn("Oggetto '" + def.id + "': manca " + dayFolder + "_illustrazione_" + def.id + ".png");
+      return;
+    }
     let html = "";
     if (def.overlay && def.overlay.html) {
       html = def.overlay.html;
@@ -296,28 +383,16 @@
   // ---------- archivio ----------
   function buildArchive() {
     archiveList.innerHTML = "";
-    const today = todayInItaly();
     [...days].map((d, i) => [d, i]).reverse().forEach(([d, i]) => {
       const li = document.createElement("li");
       const a = document.createElement("a");
       a.href = "?day=" + d;
-      a.textContent = formatDate(d);
+      a.textContent = dayLabel(d);
       a.addEventListener("click", (e) => { e.preventDefault(); archive.classList.add("hidden"); goTo(i); });
       if (i === dayIndex) a.style.fontWeight = "bold";
       li.appendChild(a);
-      if (d === today) {
-        const tag = document.createElement("span");
-        tag.className = "today-tag";
-        tag.textContent = "(oggi)";
-        li.appendChild(tag);
-      }
       archiveList.appendChild(li);
     });
-  }
-
-  function formatDate(iso) {
-    const [y, m, d] = iso.split("-");
-    return `${d}/${m}/${y}`;
   }
 
   $("archive-btn").addEventListener("click", (e) => {
@@ -334,6 +409,7 @@
     if (e.key === "Escape") {
       overlay.classList.add("hidden");
       archive.classList.add("hidden");
+      illustration.classList.add("hidden");
     } else if (e.key === "ArrowRight") {
       if (!overlay.classList.contains("hidden")) return;
       goTo(dayIndex + 1);

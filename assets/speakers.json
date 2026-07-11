@@ -1,11 +1,10 @@
 {
-  "stella": {
-    "name": "stella",
-    "box": "assets/speak_tab/box_stella.png",
-    "face": "assets/faces/stella.png"
-  },
-  "suz": {
-    "name": "suz",
-    "face": "assets/faces/suz.png"
-  }
+  "stella":    { "name": "Stella",    "box": "assets/speak_tab/stella_tab.png" },
+  "francesca": { "name": "Francesca", "box": "assets/speak_tab/francesca_tab.png" },
+  "giovanni":  { "name": "Giovanni",  "box": "assets/speak_tab/giovanni_tab.png" },
+  "delia":     { "name": "Delia",     "box": "assets/speak_tab/delia_tab.png" },
+  "nicolo":    { "name": "Nicolò",    "box": "assets/speak_tab/nicolo_tab.png" },
+  "edoardo":   { "name": "Edoardo",   "box": "assets/speak_tab/edoardo_tab.png" },
+  "daniela":   { "name": "Daniela",   "box": "assets/speak_tab/daniela_tab.png" },
+  "r":         { "name": "R",         "box": "assets/speak_tab/r_tab.png" }
 }

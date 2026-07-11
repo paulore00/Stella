@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Arpie</title>
+<title>Stella Daily</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -24,6 +24,9 @@
   <!-- Riquadro "fine discorso": compare quando Stella ha finito di parlare -->
   <img id="speech-end" class="hidden" alt="" draggable="false">
 
+  <!-- Illustrazione oggetto: si sovrappone alla scena, si chiude cliccando ovunque -->
+  <img id="illustration" class="hidden" alt="" draggable="false">
+
   <!-- Elementi legacy nascosti (il box PNG contiene già icona e nome) -->
   <img id="face-img" class="hidden" alt="">
   <span id="speaker-name" class="hidden"></span>
@@ -34,7 +37,16 @@
 
   <!-- Pulsante archivio -->
   <button id="archive-btn" title="Giorni passati">&#10032;</button>
+
+  <!-- Pulsante audio -->
+  <button id="audio-btn" class="hidden" title="Musica on/off">&#9835;</button>
 </main>
+
+<!-- Logo: sempre visibile, sopra tutto -->
+<img id="logo" src="assets/logo.png" alt="Stella Daily" draggable="false">
+
+<!-- Musica della giornata -->
+<audio id="bgm" loop preload="auto"></audio>
 
 <!-- Overlay contenuto oggetto -->
 <div id="overlay" class="hidden" role="dialog" aria-modal="true">
