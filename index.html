@@ -18,7 +18,6 @@
   <div id="dialogue" class="hidden">
     <img id="speak-box" alt="" draggable="false">
     <p id="dialogue-text"></p>
-    <span id="advance-arrow" aria-hidden="true">&#9660;</span>
   </div>
 
   <!-- Riquadro "fine discorso": compare quando Stella ha finito di parlare -->
@@ -26,6 +25,9 @@
 
   <!-- Illustrazione oggetto: si sovrappone alla scena, si chiude cliccando ovunque -->
   <img id="illustration" class="hidden" alt="" draggable="false">
+
+  <!-- Logo: full-frame, allineato al palco 16:9, visibile su ogni giornata -->
+  <img id="logo" src="assets/logo.png" alt="Stella Daily" draggable="false">
 
   <!-- Elementi legacy nascosti (il box PNG contiene già icona e nome) -->
   <img id="face-img" class="hidden" alt="">
@@ -41,9 +43,6 @@
   <!-- Pulsante audio -->
   <button id="audio-btn" class="hidden" title="Musica on/off">&#9835;</button>
 </main>
-
-<!-- Logo: sempre visibile, sopra tutto -->
-<img id="logo" src="assets/logo.png" alt="Stella Daily" draggable="false">
 
 <!-- Musica della giornata -->
 <audio id="bgm" loop preload="auto"></audio>

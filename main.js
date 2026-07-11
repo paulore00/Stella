@@ -26,7 +26,6 @@
   const dialogueBox = $("dialogue");
   const speakBox = $("speak-box");
   const dialogueText = $("dialogue-text");
-  const advanceArrow = $("advance-arrow");
   const speechEnd = $("speech-end");
   const overlay = $("overlay");
   const overlayContent = $("overlay-content");
@@ -222,7 +221,6 @@
     const line = day.dialogue[lineIndex];
     const sp = speakers[line.speaker] || {};
     if (sp.box) speakBox.src = sp.box;   // box PNG del personaggio
-    advanceArrow.classList.add("hidden");
 
     typing = true;
     dialogueText.textContent = "";
@@ -233,7 +231,6 @@
       if (i >= text.length) {
         clearInterval(typeTimer);
         typing = false;
-        advanceArrow.classList.remove("hidden");
       }
     }, TYPE_SPEED_MS);
   }
@@ -242,12 +239,10 @@
     clearInterval(typeTimer);
     typing = false;
     dialogueText.textContent = day.dialogue[lineIndex].text || "";
-    advanceArrow.classList.remove("hidden");
   }
 
   function finishDialogue() {
     dialogueDone = true;
-    advanceArrow.classList.add("hidden");
     dialogueBox.classList.add("hidden");
     speechEnd.classList.remove("hidden");   // "Se hai finito puoi anche andare..."
     // da qui gli oggetti sono cliccabili, senza indizi oltre all'hover.

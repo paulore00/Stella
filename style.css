@@ -100,7 +100,7 @@ html, body {
 #dialogue-text {
   position: absolute;
   left: 20.5%;
-  right: 4.5%;
+  right: 13%;               /* si ferma prima del triangolo ▶ disegnato nel box (a ~90%) */
   top: 78%;
   bottom: 6%;
   display: flex;
@@ -111,21 +111,6 @@ html, body {
   color: var(--nero);
   white-space: pre-wrap;
   pointer-events: none;
-}
-
-#advance-arrow {
-  position: absolute;
-  right: 5.5%;
-  bottom: 6%;
-  color: var(--viola);
-  font-size: clamp(.7rem, 1.8vmin, 1rem);
-  animation: bounce 1s infinite;
-  pointer-events: none;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(4px); }
 }
 
 /* ---------- illustrazione oggetto (si chiude cliccando ovunque) ---------- */
@@ -140,14 +125,14 @@ html, body {
   animation: pop .18s ease-out;
 }
 
-/* ---------- logo: sempre visibile, sopra ogni schermata ---------- */
+/* ---------- logo: full-frame dentro il palco, visibile su ogni giornata ---------- */
 #logo {
-  position: fixed;
-  top: 1.5vmin;
-  left: 1.5vmin;
-  z-index: 200;             /* sopra overlay, archivio, illustrazione */
-  width: clamp(90px, 14vmin, 190px);
-  height: auto;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 50;              /* sopra scena, dialogo, fine discorso e illustrazione */
   pointer-events: none;
   user-select: none;
 }
