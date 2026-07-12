@@ -1,5 +1,6 @@
 {
   "title": "Giorno 9",
+  "speechEnd": false,
   "dialogue": [
     { "speaker": "r", "text": "Sai che meriti molto di più" },
     { "speaker": "stella", "text": "Lo so, ma è così difficile adesso..." },

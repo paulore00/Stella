@@ -1,7 +1,14 @@
 {
   "title": "Giorno 14",
+  "speechEnd": false,
   "dialogue": [
-    { "speaker": "stella", "text": "[DIALOGO GIORNO 14 — INCOLLARE DA FIGMA, NON INVENTARE]" }
+    { "speaker": "stella", "text": "Ciao! Inutile girarci intorno, tanto forse si era già capito. Lui è Giovanni e ci stiamo frequentando." },
+    { "speaker": "giovanni", "text": "Già, sono molto fortunato! ahah" },
+    { "speaker": "stella", "text": "Abbiamo aspettato un po' per dirlo, ma stava diventando difficile non farlo notare..." },
+    { "speaker": "giovanni", "text": "Non che ci stessimo vedendo da tanto ahah. Vogliamo viverci questa relazione con tranquillità, ogni giorno, senza nascondere nulla." },
+    { "speaker": "stella", "text": "E poi sai che io vi dico tutto, siete la mia famiglia e con questa challenge mi sto aprendo sempre di più rendendovi partecipi della mia vita" },
+    { "speaker": "giovanni", "text": "Secondo me quello che stai costruendo è molto bello, e sono felice di essere coinvolto nel progetto. Mi faccio conoscere un po' anche io: mi chiamo Giovanni ahah, studio per diventare attore eee nulla, non so che altro dire ahah" },
+    { "speaker": "stella", "text": "Che dolce che sei!" }
   ],
   "objects": []
 }

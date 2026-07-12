@@ -56,6 +56,8 @@ Un sito statico: ogni giornata è una scena illustrata fissa 16:9 (1920×1080) i
 - Se manca `giorno_N_musica.mp3` la giornata è muta e il pulsante ♪ non compare. Se manca l'illustrazione di un oggetto, il click non apre nulla (e avvisa nella console).
 - Volendo si può forzare un nome diverso con `"scene"`, `"music"`, `"image"` o `"overlay": { "image": ... }` — normalmente non serve.
 - **Giornata a due illustrazioni**: aggiungere `"scene": "giorno_N_illustrazione_1.png"` e `"sceneEnd": "giorno_N_illustrazione_2.png"`. Con `sceneEnd` gli oggetti restano nascosti durante il dialogo e compaiono solo sulla seconda scena (es. giorno_6, giorno_10, giorno_12).
+- **`"speechEnd": false`**: nei giorni senza interazioni dopo il discorso il riquadro `fine_discorso.png` non compare (decisione ragazze: giorni 1, 5, 7, 9, 11, 14, 15, 16, 18).
+- **Giornata senza dialogo** (`"dialogue": []`): si passa subito agli oggetti cliccabili (es. giorno_13, giorno_19).
 
 ## Come si comporta il sito (deciso con le ragazze)
 

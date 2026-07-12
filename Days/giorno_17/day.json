@@ -1,7 +1,21 @@
 {
   "title": "Giorno 17",
+  "scene": "giorno_17_illustrazione_1.png",
+  "sceneEnd": "giorno_17_illustrazione_2.png",
   "dialogue": [
-    { "speaker": "stella", "text": "[DIALOGO GIORNO 17 — INCOLLARE DA FIGMA, NON INVENTARE]" }
+    { "speaker": "giovanni", "text": "Wow comunque sono stati velocissimi a stampare le foto, il compleanno è stato pochissimo tempo fa" },
+    { "speaker": "stella", "text": "Adoro, che bello! Ti va di guardarle insieme?" },
+    { "speaker": "giovanni", "text": "Certo" },
+    { "speaker": "stella", "text": "Guarda questa!" },
+    { "speaker": "giovanni", "text": "Che ridere, ma quando è successo?" },
+    { "speaker": "stella", "text": "Questa è troppo bella, poi la posto" },
+    { "speaker": "stella", "text": "..." },
+    { "speaker": "giovanni", "text": "Tutto bene?" },
+    { "speaker": "stella", "text": "Sisi, questa è venuta male, la metto via" },
+    { "speaker": "giovanni", "text": "Oddio guarda questa, sei venuta benissimo!" },
+    { "speaker": "stella", "text": "Mh okay" }
   ],
-  "objects": []
+  "objects": [
+    { "id": "fotografia" }
+  ]
 }

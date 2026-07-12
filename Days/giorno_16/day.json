@@ -1,7 +1,21 @@
 {
   "title": "Giorno 16",
+  "speechEnd": false,
+  "scene": "giorno_16_illustrazione_1.png",
+  "sceneEnd": "giorno_16_illustrazione_2.png",
   "dialogue": [
-    { "speaker": "stella", "text": "[DIALOGO GIORNO 16 — INCOLLARE DA FIGMA, NON INVENTARE]" }
+    { "speaker": "stella", "text": "Basta! Perché devi sempre rovinare tutto" },
+    { "speaker": "francesca", "text": "Stella io ti sto solo dicendo quello che Nico mi ha confidato" },
+    { "speaker": "stella", "text": "E io cosa dovrei farci a riguardo?" },
+    { "speaker": "francesca", "text": "Non lo so, ma pensa per lui cosa significhi vedere la persona che gli piace insieme a qualcun altro" },
+    { "speaker": "stella", "text": "Io non ci posso credere, me lo dici solo per farmi stare male" },
+    { "speaker": "francesca", "text": "Ma per quale razza di motivo dovrei farlo?" },
+    { "speaker": "stella", "text": "Non lo so, forse perché tutte le volte che mi succede qualcosa di bello hai sempre qualcosa da contestare" },
+    { "speaker": "francesca", "text": "Non ci credo...sei troppo egocentrica" },
+    { "speaker": "stella", "text": "Adesso vai pure a raccontarlo a mia sorella, visto che tieni più a lei che a me" },
+    { "speaker": "francesca", "text": "Almeno con lei posso parlare di qualcosa, con te è impossibile, devi essere sempre tu al centro!" },
+    { "speaker": "stella", "text": "Tu sei solo gelosa di me e io non ti credo" },
+    { "speaker": "francesca", "text": "Bene, allora aspetta pure che sia Nicolò stesso a confessarti che è innamorato del tuo ragazzo. Ciao." }
   ],
   "objects": []
 }

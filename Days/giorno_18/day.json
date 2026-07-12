@@ -1,7 +1,21 @@
 {
   "title": "Giorno 18",
+  "speechEnd": false,
   "dialogue": [
-    { "speaker": "stella", "text": "[DIALOGO GIORNO 18 — INCOLLARE DA FIGMA, NON INVENTARE]" }
+    { "speaker": "stella", "text": "Non ce la faccio più, mamma non so se posso andare avanti ancora" },
+    { "speaker": "daniela", "text": "Ma perché sussurri?" },
+    { "speaker": "stella", "text": "Non so quando arriverà..." },
+    { "speaker": "daniela", "text": "Ma chi?" },
+    { "speaker": "stella", "text": "A vedermi, a vedere cosa faccio" },
+    { "speaker": "daniela", "text": "Suvvia Stella, non stai un po' esagerando? L'hai deciso tu poi, finisci sta cosa e basta" },
+    { "speaker": "stella", "text": "Non so se voglio più farlo" },
+    { "speaker": "daniela", "text": "Ti sei pentita della challenge?" },
+    { "speaker": "stella", "text": "Un po' tutto mamma...non lo so...dicono tutti un sacco di cose su di me" },
+    { "speaker": "daniela", "text": "Ma lasciali parlare, anzi...ti fanno diventare più famosa" },
+    { "speaker": "stella", "text": "Ma sono cose vere? Io non mi riconosco più, non so se hanno ragione" },
+    { "speaker": "daniela", "text": "Ma vere di che? Dai Stella, fatti una doccia e chiama qualcuno...Francesca o Nicolò, che ne so." },
+    { "speaker": "stella", "text": "Voglio stare da sola" },
+    { "speaker": "daniela", "text": "Fai come vuoi, ora stacco dai, ciao" }
   ],
   "objects": []
 }

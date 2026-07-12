@@ -1,5 +1,6 @@
 {
   "title": "Giorno 5",
+  "speechEnd": false,
   "dialogue": [
     { "speaker": "stella", "text": "Ciao! Ti presento Nicolò e Francesca, i miei migliori amici da sempre" },
     { "speaker": "nicolo", "text": "Ciao! Oddio, che strano ahah" },

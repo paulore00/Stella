@@ -249,7 +249,9 @@
   function finishDialogue() {
     dialogueDone = true;
     dialogueBox.classList.add("hidden");
-    speechEnd.classList.remove("hidden");   // "Se hai finito puoi anche andare..."
+    // "Se hai finito puoi anche andare..." — ma nei giorni senza
+    // interazioni dopo il discorso ("speechEnd": false) non compare
+    if (!day || day.speechEnd !== false) speechEnd.classList.remove("hidden");
     // giornate a due illustrazioni: si passa alla seconda scena
     // e solo qui compaiono gli oggetti
     if (day && day.sceneEnd) {

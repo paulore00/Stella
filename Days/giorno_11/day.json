@@ -1,5 +1,6 @@
 {
   "title": "Giorno 11",
+  "speechEnd": false,
   "dialogue": [
     { "speaker": "nicolo", "text": "Metto qui i bicchieri, va bene?" },
     { "speaker": "stella", "text": "Sì Nico, grazie...ah, ciao! Come va? Siamo in mezzo ai preparativi per la festa" },

@@ -1,5 +1,6 @@
 {
   "title": "Giorno 7",
+  "speechEnd": false,
   "dialogue": [
     { "speaker": "francesca", "text": "Questo shopping ci voleva!" },
     { "speaker": "nicolo", "text": "Ma poi vogliamo parlare del vestito che ha preso Stella? Sarà una festeggiata bellissima" },

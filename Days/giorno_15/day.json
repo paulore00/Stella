@@ -1,7 +1,23 @@
 {
   "title": "Giorno 15",
+  "speechEnd": false,
+  "scene": "giorno_15_illustrazione_1.png",
+  "sceneEnd": "giorno_15_illustrazione_2.png",
   "dialogue": [
-    { "speaker": "stella", "text": "[DIALOGO GIORNO 15 — INCOLLARE DA FIGMA, NON INVENTARE]" }
+    { "speaker": "stella", "text": "Raga chi vuole un'altra fetta di pizza?" },
+    { "speaker": "francesca", "text": "Io, dai! Nico tu la vuoi?" },
+    { "speaker": "nicolo", "text": "No" },
+    { "speaker": "stella", "text": "Tutto okay?" },
+    { "speaker": "giovanni", "text": "Io la prendo" },
+    { "speaker": "stella", "text": "Un giorno dovremmo fare la pizza insieme, vero amore?" },
+    { "speaker": "giovanni", "text": "Che bello, scommetto che sarai bravissima" },
+    { "speaker": "stella", "text": "Si vede che ancora non mi conosci bene, sono una frana in cucina..." },
+    { "speaker": "giovanni", "text": "Sei la solita, scommettiamo che se ti do una mano viene buonissima" },
+    { "speaker": "francesca", "text": "Guardate che siamo ancora qui noi eh..." },
+    { "speaker": "nicolo", "text": "Appunto" },
+    { "speaker": "stella", "text": "Tranquilli ahah, siete invitati anche voi" },
+    { "speaker": "nicolo", "text": "Anche no, grazie. Torno a casa che si è fatto tardi." },
+    { "speaker": "stella", "text": "Ma dai, che dici..." }
   ],
   "objects": []
 }

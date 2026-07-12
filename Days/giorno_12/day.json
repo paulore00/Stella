@@ -1,7 +1,5 @@
 {
   "title": "Giorno 12",
-  "scene": "giorno_12_illustrazione_1.png",
-  "sceneEnd": "giorno_12_illustrazione_2.png",
   "dialogue": [
     { "speaker": "stella", "text": "[DIALOGO GIORNO 12 — INCOLLARE DA FIGMA, NON INVENTARE]" }
   ],

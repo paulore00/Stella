@@ -1,7 +1,11 @@
 {
   "title": "Giorno 20",
   "dialogue": [
-    { "speaker": "stella", "text": "[DIALOGO GIORNO 20 — INCOLLARE DA FIGMA, NON INVENTARE]" }
+    { "speaker": "stella", "text": "Ciao, oggi non c'è molto da vedere...anzi vorrei stare un po' da sola" }
   ],
-  "objects": []
+  "objects": [
+    { "id": "cestino" },
+    { "id": "diario" },
+    { "id": "telefono" }
+  ]
 }
