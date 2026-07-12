@@ -6,15 +6,15 @@
     { "speaker": "nicolo", "text": "Ma poi vogliamo parlare del vestito che ha preso Stella? Sarà una festeggiata bellissima" },
     { "speaker": "stella", "text": "Non vedo l'ora di pubblicarlo su Instagram!" },
     { "speaker": "nicolo", "text": "Hai invitato tanta gente al compleanno?" },
-    { "speaker": "stella", "text": "Non so. Forse preferirei farla tra pochi intimi, ci sto ancora pensando...vorrei farla qui." },
+    { "speaker": "stella", "text": "Non so. Forse preferirei farla tra pochi intimi, ci sto ancora pensando...vorrei festeggiarla qui." },
     { "speaker": "francesca", "text": "Quindi non ci sarà Giovanni?" },
     { "speaker": "stella", "text": "..." },
     { "speaker": "stella", "text": "...forse meglio invitare più gente..." },
     { "speaker": "nicolo", "text": "Tua sorella ha preso il vestito?" },
-    { "speaker": "stella", "text": "Ehm..credo di sì, forse tra qualche giorno verrà a trovarmi" },
+    { "speaker": "stella", "text": "Ehm...dovrebbe, forse tra qualche giorno verrà a trovarmi" },
     { "speaker": "francesca", "text": "Ah vero, mi aveva detto" },
     { "speaker": "stella", "text": "Vi siete scritte?" },
-    { "speaker": "francesca", "text": "Ma sì, ogni tanto ci sentiamo" },
+    { "speaker": "francesca", "text": "Boh, ogni tanto ci sentiamo" },
     { "speaker": "stella", "text": "Capito." }
   ],
   "objects": []

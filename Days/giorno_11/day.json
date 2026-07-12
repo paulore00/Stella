@@ -3,16 +3,16 @@
   "speechEnd": false,
   "dialogue": [
     { "speaker": "nicolo", "text": "Metto qui i bicchieri, va bene?" },
-    { "speaker": "stella", "text": "Sì Nico, grazie...ah, ciao! Come va? Siamo in mezzo ai preparativi per la festa" },
+    { "speaker": "stella", "text": "Ok Nico, grazie...ah, ciao! Come va? Siamo in mezzo ai preparativi per la festa" },
     { "speaker": "daniela", "text": "Ma Edoardo non viene a dare una mano?" },
     { "speaker": "stella", "text": "No mamma, era impegnato..." },
-    { "speaker": "francesca", "text": "Sì, come no...impegnatissimo..." },
-    { "speaker": "delia", "text": "Così impegnato che non lo vedremo per un bel po'..." },
+    { "speaker": "francesca", "text": "Come no...impegnatissimo..." },
+    { "speaker": "delia", "text": "Talmente impegnato che non lo vedremo per un bel po'..." },
     { "speaker": "daniela", "text": "In che senso?" },
     { "speaker": "nicolo", "text": "Dany, che ne dici del vestito di Stella?" },
-    { "speaker": "daniela", "text": "Carino sì, Delia mi aveva mandato una foto...ma mi sembra un po' piccolo, tesoro stai seguendo le schede che ti ho mandato per la palestra?" },
+    { "speaker": "daniela", "text": "Carino, Delia mi aveva mandato una foto...ma mi sembra un po' piccolo, tesoro stai seguendo le schede che ti ho mandato per la palestra?" },
     { "speaker": "stella", "text": "Delia ti ha mandato la foto?" },
-    { "speaker": "daniela", "text": "Eh sì, tu non mi fai vedere mai nulla" },
+    { "speaker": "daniela", "text": "Eh, tu non mi fai vedere mai nulla" },
     { "speaker": "nicolo", "text": "Vabbé, direi che è tutto pronto per domani!" }
   ],
   "objects": []

@@ -3,7 +3,7 @@
   "speechEnd": false,
   "dialogue": [
     { "speaker": "r", "text": "Sai che meriti molto di più" },
-    { "speaker": "stella", "text": "Lo so, ma è così difficile adesso..." },
+    { "speaker": "stella", "text": "Lo so, ma è difficile adesso..." },
     { "speaker": "r", "text": "Io sono qui, lo sai" },
     { "speaker": "stella", "text": "Sigh..." },
     { "speaker": "r", "text": "Io penso che quando una persona ti ama, ti supporta in tutto quello che fai, invece di buttarti giù" },

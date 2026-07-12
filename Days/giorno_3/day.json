@@ -1,17 +1,17 @@
 {
   "title": "Giorno 3",
   "dialogue": [
-    { "speaker": "stella", "text": "Benvenut* nella mia giornata! Lui è Edoardo, il mio ragazzo" },
+    { "speaker": "stella", "text": "Rieccoci! Lui è Edoardo, il mio ragazzo" },
     { "speaker": "edoardo", "text": "Ciao" },
     { "speaker": "stella", "text": "Ci siamo conosciuti al liceo, lui era stracotto di me" },
     { "speaker": "edoardo", "text": "Dai, non è vero" },
-    { "speaker": "stella", "text": "Sì, come no ahah. Comunque, ho pensato che potremmo preparare una cenetta a lume di candela" },
+    { "speaker": "stella", "text": "Certo, come no ahah. Comunque, ho pensato che potremmo preparare una cenetta a lume di candela" },
     { "speaker": "edoardo", "text": "Dai okay, anche se non è tanto una cosa da noi" },
     { "speaker": "stella", "text": "Beh è una cosa nuova per chi ci guarda!" },
-    { "speaker": "edoardo", "text": "Sì giusto..." },
+    { "speaker": "edoardo", "text": "Ah giusto..." },
     { "speaker": "stella", "text": "Mettiamoci a cucinare, sarà una bella seratina tra noi due" },
     { "speaker": "edoardo", "text": "Non solo noi due..." },
-    { "speaker": "stella", "text": "A proposito! ho visto che avete già creato delle pagine su di me! Non ho avuto ancora il tempo di guardarle bene ma intanto vi ringrazio e voi andate a seguirle! sono @stelladaily.updates e @stelladaily.stan" }
+    { "speaker": "stella", "text": "A proposito! Ho visto che avete già creato delle pagine su di me! Non ho avuto ancora il tempo di guardarle bene ma intanto vi ringrazio e voi andate a seguirle! sono @stelladaily.updates e @stelladaily.stan" }
   ],
   "objects": [
     { "id": "chiavi" }
