@@ -36,6 +36,7 @@
   const archiveList = $("archive-list");
   const navPrev = $("nav-prev");
   const navNext = $("nav-next");
+  const dayLabelEl = $("day-label");
 
   // ---------- stato ----------
   let speakers = {};
@@ -116,6 +117,8 @@
     // "sceneEnd" = giorno_N_illustrazione_2.png (a fine dialogo, con gli oggetti)
     sceneImg.src = dayPath + (day.scene || dayFolder + "_illustrazione.png");
     setMusic(day.music || dayFolder + "_musica.mp3");
+
+    dayLabelEl.textContent = dayLabel(dayFolder);   // "Giorno N" sotto il logo
 
     await prepareObjects(day.objects || []);
     // con sceneEnd gli oggetti appartengono alla seconda scena:
@@ -391,7 +394,8 @@
   // ---------- archivio ----------
   function buildArchive() {
     archiveList.innerHTML = "";
-    [...days].map((d, i) => [d, i]).reverse().forEach(([d, i]) => {
+    // ordine crescente verso il basso: Giorno 1 in cima
+    days.map((d, i) => [d, i]).forEach(([d, i]) => {
       const li = document.createElement("li");
       const a = document.createElement("a");
       a.href = "?day=" + d;
