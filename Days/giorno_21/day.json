@@ -1,5 +1,6 @@
 {
   "title": "Giorno 21",
+  "speechEndImage": "fine_discorso_speciale.png",
   "music": false,
   "scene": "giorno_21_illustrazione_1.png",
   "roomSound": "giorno_21_musica_porta.mp3",

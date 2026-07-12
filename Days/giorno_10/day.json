@@ -1,5 +1,6 @@
 {
   "title": "Giorno 10",
+  "speechEnd": false,
   "scene": "giorno_10_illustrazione_1.png",
   "sceneEnd": "giorno_10_illustrazione_2.png",
   "dialogue": [

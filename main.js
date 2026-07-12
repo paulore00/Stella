@@ -128,6 +128,8 @@
     // giornate a DUE illustrazioni: "scene" = giorno_N_illustrazione_1.png (dialogo),
     // "sceneEnd" = giorno_N_illustrazione_2.png (a fine dialogo, con gli oggetti)
     sceneImg.src = dayPath + (day.scene || dayFolder + "_illustrazione.png");
+    // riquadro di fine discorso dedicato della giornata (es. fine_discorso_speciale.png)
+    speechEnd.src = day.speechEndImage ? dayPath + day.speechEndImage : END_IMG;
     // "music": false = giornata senza musica di sottofondo (es. giorno 21)
     setMusic(day.music === false ? null : (day.music || dayFolder + "_musica.mp3"));
     // suono riprodotto a ogni cambio stanza (giornate con "rooms")
@@ -405,8 +407,10 @@
   // ---------- click + hover sulla scena ----------
   stage.addEventListener("click", (e) => {
     if (!illustration.classList.contains("hidden")) {
-      // oggetto bistabile: resta aperto, si chiude solo con la freccetta
-      if (stickyDef) return;
+      // oggetto bistabile: durante il dialogo i click li gestisce la vignetta;
+      // a discorso finito il primo click riporta alla home della giornata
+      // (in alternativa c'è sempre la freccetta ↩)
+      if (stickyDef) { closeSticky(); return; }
       // illustrazione normale: qualsiasi click la chiude
       illustration.classList.add("hidden");
       stage.style.cursor = "";
