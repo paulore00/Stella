@@ -1,7 +1,16 @@
 {
   "title": "Giorno 4",
   "dialogue": [
-    { "speaker": "stella", "text": "[DIALOGO GIORNO 4 — INCOLLARE DA FIGMA, NON INVENTARE]" }
+    { "speaker": "stella", "text": "Ciao eccoti! oggi serata tra sorelle! ho preparato i pop corn e guarderemo un film che guardavamo sempre da piccole!" },
+    { "speaker": "delia", "text": "si infatti ormai lo conosco a memoria.. ma non possiamo guardarne uno nuovo?" },
+    { "speaker": "stella", "text": "daiii sai quanto ci tengo" },
+    { "speaker": "delia", "text": "Va bene.. sempre come vuoi tu" },
+    { "speaker": "stella", "text": "Ti ricordi quando la mamma doveva nasconderci il cd perchè lo guardavamo troppe volte?" },
+    { "speaker": "delia", "text": "Nasconderci? il film piaceva a te, a me non ha mai fatto impazzire.." },
+    { "speaker": "stella", "text": "Ma se piangevi sempre sul finale" },
+    { "speaker": "delia", "text": "Ma perchè devi sempre mettermi in imbarazzo?" },
+    { "speaker": "stella", "text": "Ma daii sto scherzando haha piangevamo entrambe, eravamo tenerissime" },
+    { "speaker": "delia", "text": "Boh.. vabbè guardiamo il film che poi devo uscire" }
   ],
   "objects": [
     { "id": "chiavi" }

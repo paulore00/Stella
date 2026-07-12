@@ -1,7 +1,20 @@
 {
   "title": "Giorno 7",
   "dialogue": [
-    { "speaker": "stella", "text": "[DIALOGO GIORNO 7 — INCOLLARE DA FIGMA, NON INVENTARE]" }
+    { "speaker": "francesca", "text": "Questo shopping ci voleva!" },
+    { "speaker": "nicolo", "text": "Ma poi vogliamo parlare del vestito che ha preso Stella? Sarà una festeggiata bellissima" },
+    { "speaker": "stella", "text": "Non vedo l'ora di pubblicarlo su Instagram!" },
+    { "speaker": "nicolo", "text": "Hai invitato tanta gente al compleanno?" },
+    { "speaker": "stella", "text": "Non so. Forse preferirei farla tra pochi intimi, ci sto ancora pensando...vorrei farla qui." },
+    { "speaker": "francesca", "text": "Quindi non ci sarà Giovanni?" },
+    { "speaker": "stella", "text": "..." },
+    { "speaker": "stella", "text": "...forse meglio invitare più gente..." },
+    { "speaker": "nicolo", "text": "Tua sorella ha preso il vestito?" },
+    { "speaker": "stella", "text": "Ehm..credo di sì, forse tra qualche giorno verrà a trovarmi" },
+    { "speaker": "francesca", "text": "Ah vero, mi aveva detto" },
+    { "speaker": "stella", "text": "Vi siete scritte?" },
+    { "speaker": "francesca", "text": "Ma sì, ogni tanto ci sentiamo" },
+    { "speaker": "stella", "text": "Capito." }
   ],
   "objects": []
 }

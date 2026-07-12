@@ -3,7 +3,22 @@
   "scene": "giorno_10_illustrazione_1.png",
   "sceneEnd": "giorno_10_illustrazione_2.png",
   "dialogue": [
-    { "speaker": "stella", "text": "[DIALOGO GIORNO 10 — INCOLLARE DA FIGMA, NON INVENTARE]" }
+    { "speaker": "stella", "text": "Ti faccio subito vedere il vestito nuovo per la festa" },
+    { "speaker": "delia", "text": "Ma non è un po' troppo?" },
+    { "speaker": "stella", "text": "Alle ragazze è piaciuto molto...poi sono la festeggiata" },
+    { "speaker": "delia", "text": "Dai, ci sta" },
+    { "speaker": "stella", "text": "Tu che metti?" },
+    { "speaker": "delia", "text": "Penso che userò un vestito che ho già, tipo quello che ho comprato con mamma" },
+    { "speaker": "stella", "text": "Ma quando l'avete comprato?" },
+    { "speaker": "delia", "text": "Eh pensavamo che tu fossi impegnata con sta roba" },
+    { "speaker": "stella", "text": "Allora poi manda foto" },
+    { "speaker": "delia", "text": "Aspetta che ne ho una..." },
+    { "speaker": "stella", "text": "Ma era la chat con Francesca?" },
+    { "speaker": "delia", "text": "Che c'è di male? Ogni tanto usciamo" },
+    { "speaker": "stella", "text": "Potremmo farlo tutte insieme qualche volta!" },
+    { "speaker": "delia", "text": "Mh....si ok, poi vediamo. Ti lascio che scappo a lezione" },
+    { "speaker": "stella", "text": "Ok! Salutami la mamma" },
+    { "speaker": "delia", "text": "Sisi" }
   ],
   "objects": []
 }

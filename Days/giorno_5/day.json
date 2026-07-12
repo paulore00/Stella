@@ -1,7 +1,21 @@
 {
   "title": "Giorno 5",
   "dialogue": [
-    { "speaker": "stella", "text": "[DIALOGO GIORNO 5 — INCOLLARE DA FIGMA, NON INVENTARE]" }
+    { "speaker": "stella", "text": "Ciao! Ti presento Nicolò e Francesca, i miei migliori amici da sempre" },
+    { "speaker": "nicolo", "text": "Ciao! Oddio, che strano ahah" },
+    { "speaker": "francesca", "text": "Sì, un'altra scusa per avere un po' di attenzioni ahah" },
+    { "speaker": "stella", "text": "Ahah, smettetela! Piuttosto, aggiornamenti?" },
+    { "speaker": "nicolo", "text": "Boh, io sto stressatissimo per l'esame di storia della filosofia, è pesantissimo..." },
+    { "speaker": "francesca", "text": "Ma dai, tanto sei un secchione. Dicevi così sempre al liceo e poi prendevi tutti 10" },
+    { "speaker": "stella", "text": "Vabbé lui studia e si impegna tanto, se li è sempre sudati i voti" },
+    { "speaker": "nicolo", "text": "Dai, non ci pensiamo che mi viene l'ansia. A prescindere dopo l'esame facciamo qualcosa di divertente" },
+    { "speaker": "stella", "text": "Siiii" },
+    { "speaker": "francesca", "text": "Ma tu non dovevi dovevi vedere Edoardo?" },
+    { "speaker": "stella", "text": "Ah sì vero... allora rimandiamo?" },
+    { "speaker": "francesca", "text": "Vabbè non è che se non puoi tu allora non ci vediamo.." },
+    { "speaker": "stella", "text": "Ok certo.. allora Edo lo posso vedere un'altra volta e noi andiamo a fare shopping insieme?" },
+    { "speaker": "nicolo", "text": "Ci sta! Io ho bisogno di qualcosa da mettere alla festa" },
+    { "speaker": "francesca", "text": "Cavoli, dimenticavo che ci sarà la festa tra un po'" }
   ],
   "objects": []
 }

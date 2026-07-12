@@ -3,7 +3,13 @@
   "scene": "giorno_6_illustrazione_1.png",
   "sceneEnd": "giorno_6_illustrazione_2.png",
   "dialogue": [
-    { "speaker": "stella", "text": "[DIALOGO GIORNO 6 — INCOLLARE DA FIGMA, NON INVENTARE]" }
+    { "speaker": "edoardo", "text": "...e ahah quindi poi mi ha detto sta roba che non ci sta, vabbé poi ti racconto" },
+    { "speaker": "stella", "text": "Dai, dimmi ora!" },
+    { "speaker": "edoardo", "text": "No niente" },
+    { "speaker": "stella", "text": "Ma dai, mi stavi raccontando" },
+    { "speaker": "edoardo", "text": "Amore, si è fatto tardi...penso tornerò a casa" },
+    { "speaker": "stella", "text": "Va bene va bene, allora mi scrivi poi" },
+    { "speaker": "edoardo", "text": "Certo, ci sentiamo" }
   ],
   "objects": [
     { "id": "telefono" }

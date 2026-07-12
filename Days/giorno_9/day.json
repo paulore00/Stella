@@ -1,7 +1,15 @@
 {
   "title": "Giorno 9",
   "dialogue": [
-    { "speaker": "stella", "text": "[DIALOGO GIORNO 9 — INCOLLARE DA FIGMA, NON INVENTARE]" }
+    { "speaker": "r", "text": "Sai che meriti molto di più" },
+    { "speaker": "stella", "text": "Lo so, ma è così difficile adesso..." },
+    { "speaker": "r", "text": "Io sono qui, lo sai" },
+    { "speaker": "stella", "text": "Sigh..." },
+    { "speaker": "r", "text": "Io penso che quando una persona ti ama, ti supporta in tutto quello che fai, invece di buttarti giù" },
+    { "speaker": "stella", "text": "Per me tutto questo è importante, è il mio sogno" },
+    { "speaker": "r", "text": "Lo so Stellina" },
+    { "speaker": "stella", "text": "Ma forse sono solo una bionda stupida, dentro di me mi ci sono sentita per tanto tempo e pensavo di mollare tutto, invece ce l'ho fatta, sono dove voglio essere oggi" },
+    { "speaker": "r", "text": "Stella tu sei una ragazza straordinaria, Edoardo non sa cosa ha perso..." }
   ],
   "objects": []
 }
