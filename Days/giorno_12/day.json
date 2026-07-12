@@ -1,7 +1,22 @@
 {
   "title": "Giorno 12",
-  "dialogue": [
-    { "speaker": "stella", "text": "[DIALOGO GIORNO 12 — INCOLLARE DA FIGMA, NON INVENTARE]" }
-  ],
-  "objects": []
+  "dialogue": [],
+  "objects": [
+    {
+      "id": "porta",
+      "dialogue": [
+        { "speaker": "giovanni", "text": "Ciao, scusami...Stella sta poco bene, lasciamole un attimo di tranquillità, sono sicuro che appena si sentirà meglio sarà subito da te, spero capirai..." }
+      ]
+    },
+    {
+      "id": "invitati",
+      "dialogue": [
+        { "speaker": "ivan", "text": "Stella? Una ragazza a cui piace divertirsi diciamo ahah" },
+        { "speaker": "sara", "text": "Sui social è molto diversa dalla realtà, fidati..." },
+        { "speaker": "ivan", "text": "Hai visto con chi è in bagno? Neanche il tempo di lasciarsi...chissà se..." },
+        { "speaker": "sara", "text": "Anche se farebbe meglio a guardarsi le spalle da lui...so che è uno che si lega facilmente" },
+        { "speaker": "francesca", "text": "Non stare a sentire questi due, balliamo un po' insieme!" }
+      ]
+    }
+  ]
 }

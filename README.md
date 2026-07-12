@@ -58,6 +58,8 @@ Un sito statico: ogni giornata è una scena illustrata fissa 16:9 (1920×1080) i
 - **Giornata a due illustrazioni**: aggiungere `"scene": "giorno_N_illustrazione_1.png"` e `"sceneEnd": "giorno_N_illustrazione_2.png"`. Con `sceneEnd` gli oggetti restano nascosti durante il dialogo e compaiono solo sulla seconda scena (es. giorno_6, giorno_10, giorno_12).
 - **`"speechEnd": false`**: nei giorni senza interazioni dopo il discorso il riquadro `fine_discorso.png` non compare (decisione ragazze: giorni 1, 5, 7, 9, 11, 14, 15, 16, 18).
 - **Giornata senza dialogo** (`"dialogue": []`): si passa subito agli oggetti cliccabili (es. giorno_13, giorno_19).
+- **Oggetto bistabile** (giorno_12): un oggetto con `"dialogue": [...]` apre la sua illustrazione E un dialogo dedicato; cliccando si avanza nel discorso senza chiudere, e si torna alla scena principale solo con la freccetta ↩ in basso a sinistra. Così si può poi cliccare l'altro oggetto.
+- **Stanze** (giorno_21): `"rooms": [{"image": ...}, ...]` aggiunge due freccette blu sotto quelle delle giornate (sinistra → rooms[0], destra → rooms[1]); dentro una stanza la ↩ riporta alla scena principale. `"roomSound"` è il suono riprodotto a ogni cambio stanza; `"music": false` = nessuna musica di sottofondo. Un oggetto con `"room": N` esiste solo in quella stanza (es. lettera in camera, rooms[1]).
 
 ## Come si comporta il sito (deciso con le ragazze)
 

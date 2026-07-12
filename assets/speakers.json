@@ -6,5 +6,7 @@
   "nicolo":    { "name": "Nicolò",    "box": "assets/speak_tab/nicolo_tab.png" },
   "edoardo":   { "name": "Edoardo",   "box": "assets/speak_tab/edoardo_tab.png" },
   "daniela":   { "name": "Daniela",   "box": "assets/speak_tab/daniela_tab.png" },
-  "r":         { "name": "R",         "box": "assets/speak_tab/r_tab.png" }
+  "r":         { "name": "R",         "box": "assets/speak_tab/r_tab.png" },
+  "ivan":      { "name": "Ivan",      "box": "assets/speak_tab/ivan_tab.png" },
+  "sara":      { "name": "Sara",      "box": "assets/speak_tab/sara_tab.png" }
 }

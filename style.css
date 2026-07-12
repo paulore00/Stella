@@ -90,6 +90,9 @@ html, body {
   cursor: pointer;
 }
 
+/* dialogo di un oggetto bistabile: sta SOPRA l'illustrazione aperta */
+#dialogue.over-ill { z-index: 45; }
+
 #speak-box,
 #speech-end {
   position: absolute;
@@ -217,6 +220,31 @@ html, body {
 .nav-arrow:hover { transform: translateY(-50%) scale(1.12); }
 #nav-prev { left: 2%; }
 #nav-next { right: 2%; }
+
+/* frecce cambio-stanza: sotto quelle delle giornate, colore blu */
+.room-arrow { top: 63%; color: var(--blu); }
+#room-prev { left: 2%; }
+#room-next { right: 2%; }
+
+/* freccetta "torna indietro": in basso a sinistra, sopra l'illustrazione */
+#back-btn {
+  position: absolute;
+  left: 2%;
+  bottom: 3.5%;
+  z-index: 46;              /* sopra illustrazione (40) e dialogo sovrapposto (45) */
+  width: clamp(38px, 5.5vmin, 56px);
+  height: clamp(38px, 5.5vmin, 56px);
+  border: 3px solid var(--nero);
+  border-radius: 50%;
+  background: var(--carta);
+  color: var(--viola);
+  font-size: clamp(1rem, 2.6vmin, 1.6rem);
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 rgba(0,0,0,.3);
+  transition: transform .15s;
+}
+#back-btn:hover { transform: scale(1.12); }
 
 /* ---------- overlay generici ---------- */
 #overlay, #archive {

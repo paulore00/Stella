@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Stella Daily</title>
-<link rel="stylesheet" href="style.css?v=20260713">
+<link rel="stylesheet" href="style.css?v=20260713b">
 </head>
 <body>
 
@@ -39,6 +39,13 @@
   <!-- Frecce di navigazione fra le giornate -->
   <button id="nav-prev" class="nav-arrow hidden" aria-label="Giornata precedente">&#10094;</button>
   <button id="nav-next" class="nav-arrow hidden" aria-label="Giornata successiva">&#10095;</button>
+
+  <!-- Frecce per cambiare stanza (solo giornate con "rooms"), sotto quelle delle giornate -->
+  <button id="room-prev" class="nav-arrow room-arrow hidden" aria-label="Stanza a sinistra">&#10094;</button>
+  <button id="room-next" class="nav-arrow room-arrow hidden" aria-label="Stanza a destra">&#10095;</button>
+
+  <!-- Freccetta "torna indietro" (oggetti bistabili e stanze) -->
+  <button id="back-btn" class="hidden" title="Torna indietro" aria-label="Torna indietro">&#8617;</button>
 
   <!-- Pulsante archivio -->
   <button id="archive-btn" title="Giorni passati">&#10032;</button>
@@ -78,6 +85,6 @@
   <p>Oggi non c'&egrave; nessuno in casa&hellip; torna presto!</p>
 </div>
 
-<script src="main.js?v=20260713"></script>
+<script src="main.js?v=20260713b"></script>
 </body>
 </html>
