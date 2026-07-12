@@ -112,10 +112,15 @@
     }
 
     // convenzione dei nomi: giorno_N_illustrazione.png, giorno_N_musica.mp3
+    // giornate a DUE illustrazioni: "scene" = giorno_N_illustrazione_1.png (dialogo),
+    // "sceneEnd" = giorno_N_illustrazione_2.png (a fine dialogo, con gli oggetti)
     sceneImg.src = dayPath + (day.scene || dayFolder + "_illustrazione.png");
     setMusic(day.music || dayFolder + "_musica.mp3");
 
     await prepareObjects(day.objects || []);
+    // con sceneEnd gli oggetti appartengono alla seconda scena:
+    // restano nascosti finché il dialogo non finisce
+    layersDiv.classList.toggle("hidden", !!day.sceneEnd);
     buildArchive();
     updateNav();
 
@@ -245,6 +250,12 @@
     dialogueDone = true;
     dialogueBox.classList.add("hidden");
     speechEnd.classList.remove("hidden");   // "Se hai finito puoi anche andare..."
+    // giornate a due illustrazioni: si passa alla seconda scena
+    // e solo qui compaiono gli oggetti
+    if (day && day.sceneEnd) {
+      sceneImg.src = dayPath + day.sceneEnd;
+      layersDiv.classList.remove("hidden");
+    }
     // da qui gli oggetti sono cliccabili, senza indizi oltre all'hover.
   }
 

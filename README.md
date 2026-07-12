@@ -21,6 +21,7 @@ Un sito statico: ogni giornata è una scena illustrata fissa 16:9 (1920×1080) i
   - `index.json` — elenco delle giornate pubblicate (`giorno_1`, `giorno_2`, …).
   - `giorno_N/` — una cartella per giornata. **I nomi dei file seguono la convenzione ed è il motore a trovarli da solo**:
     - `giorno_N_illustrazione.png` — la scena, 1920×1080.
+    - `giorno_N_illustrazione_1.png` + `giorno_N_illustrazione_2.png` — giornata a **due illustrazioni**: il dialogo si svolge sulla `_1`, a fine dialogo la scena passa alla `_2` ed è lì che gli oggetti compaiono e diventano cliccabili (nel `day.json` vanno indicate con `"scene"` e `"sceneEnd"`).
     - `giorno_N_musica.mp3` — la canzone della giornata (loop).
     - `giorno_N_<oggetto>.png` — un PNG per oggetto interattivo, **full-frame 1920×1080, trasparente tranne l'oggetto al suo posto**.
     - `giorno_N_illustrazione_<oggetto>.png` — l'illustrazione che appare cliccando l'oggetto, full-frame 1920×1080.
@@ -54,6 +55,7 @@ Un sito statico: ogni giornata è una scena illustrata fissa 16:9 (1920×1080) i
 - `objects` può essere `[]` (giornata senza oggetti).
 - Se manca `giorno_N_musica.mp3` la giornata è muta e il pulsante ♪ non compare. Se manca l'illustrazione di un oggetto, il click non apre nulla (e avvisa nella console).
 - Volendo si può forzare un nome diverso con `"scene"`, `"music"`, `"image"` o `"overlay": { "image": ... }` — normalmente non serve.
+- **Giornata a due illustrazioni**: aggiungere `"scene": "giorno_N_illustrazione_1.png"` e `"sceneEnd": "giorno_N_illustrazione_2.png"`. Con `sceneEnd` gli oggetti restano nascosti durante il dialogo e compaiono solo sulla seconda scena (es. giorno_6, giorno_10, giorno_12).
 
 ## Come si comporta il sito (deciso con le ragazze)
 

@@ -3,5 +3,7 @@
   "dialogue": [
     { "speaker": "stella", "text": "[DIALOGO GIORNO 13 — INCOLLARE DA FIGMA, NON INVENTARE]" }
   ],
-  "objects": []
+  "objects": [
+    { "id": "telefono" }
+  ]
 }
