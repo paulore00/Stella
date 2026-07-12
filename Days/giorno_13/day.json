@@ -1,5 +1,6 @@
 {
   "title": "Giorno 13",
+  "speechEndImage": "fine_discorso_speciale.png",
   "dialogue": [],
   "objects": [
     { "id": "telefono" }
