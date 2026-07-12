@@ -456,7 +456,9 @@
         backBtn.classList.remove("hidden");
         dialogueBox.classList.add("over-ill");
         stage.style.cursor = "";
-        startDialogue(def.dialogue, () => dialogueBox.classList.add("hidden"));
+        // il click sull'ultima battuta chiude tutto e riporta alla home,
+        // senza click extra (la ↩ resta come uscita anticipata)
+        startDialogue(def.dialogue, closeSticky);
       } else {
         stage.style.cursor = "pointer";   // qualsiasi click chiude
       }
