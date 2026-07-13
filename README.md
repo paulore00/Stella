@@ -2,7 +2,7 @@
 
 Documento unico del progetto: cos'è, come funziona, come si aggiorna, come si pubblica e a che punto siamo. Aggiornato all'**11 luglio 2026**.
 
-- Repo GitHub: https://github.com/paulore00/Stella (remote collegato, manca il primo push)
+- Repo GitHub: https://github.com/paulatolorenzo/Stella (remote collegato, manca il primo push)
 - Figma contenuti: https://www.figma.com/design/yVcNQVvis5Gr4ELnMdQBol/Stella-Daily-Sito — la pagina "giornate" è troppo grande per la lettura automatica via connettore: testi e immagini vanno passati a mano, oppure mandando i **link ai singoli frame** (tasto destro → Copy link to selection)
 - Musiche: cartella Drive "musiche" di Sara — https://drive.google.com/drive/folders/1Clkwmm17gbc3DFdZIhJisfwlTpXz0JRv
 
@@ -110,13 +110,13 @@ poi `http://localhost:8000` (giornata specifica: `?day=giorno_2`).
 
 ## Pubblicare su GitHub
 
-Il repo locale è già inizializzato e collegato a https://github.com/paulore00/Stella. Manca solo il push.
+Il repo locale è già inizializzato e collegato a https://github.com/paulatolorenzo/Stella. Manca solo il push.
 
-**Strada A — GitHub Desktop (senza terminale):** installa https://desktop.github.com, login come paulore00, *File → Add local repository* → questa cartella → **Publish branch**. Per gli aggiornamenti: Summary → *Commit to main* → *Push origin*.
+**Strada A — GitHub Desktop (senza terminale):** installa https://desktop.github.com, login come paulatolorenzo, *File → Add local repository* → questa cartella → **Publish branch**. Per gli aggiornamenti: Summary → *Commit to main* → *Push origin*.
 
 **Strada B — Terminale:** `git push -u origin main` (se rifiutato: prima `git pull --rebase origin main`). Aggiornamenti: `git add -A && git commit -m "..." && git push`.
 
-**Attivare il sito (una volta sola):** repo → Settings → Pages → *Deploy from a branch* → main / root. URL: `https://paulore00.github.io/Stella/`. Il file `.nojekyll` è già presente e serve a Pages.
+**Attivare il sito (una volta sola):** repo → Settings → Pages → *Deploy from a branch* → main / root. URL: `https://paulatolorenzo.github.io/Stella/`. Il file `.nojekyll` è già presente e serve a Pages.
 
 **Dominio stelladaily.com:** va comprato da un registrar (~10–15 €/anno). Poi: file `CNAME` nel repo con `stelladaily.com` + 4 record DNS A verso GitHub Pages + Settings → Pages → Custom domain. Configurazione da fare quando il dominio c'è.
 

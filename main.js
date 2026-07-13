@@ -546,5 +546,64 @@
     }
   });
 
+  // ============================================================
+  //  TRACKING ANONIMO DEI CLICK  (Supabase — "spara e dimentica")
+  //  Registra SOLO: giornata, posizione in % sul palco, cosa è
+  //  stato cliccato, quando. Niente IP, niente cookie, niente
+  //  identificativi. Se il DB non risponde, il sito non rallenta
+  //  e non mostra errori: si perde solo quel dato.
+  //  Spento in locale e con ?notrack in fondo all'URL.
+  // ============================================================
+  const TRACK_URL = "https://earsljqylkpedzitlnym.supabase.co";
+  const TRACK_KEY = "sb_publishable_dMZ4mzM88UjGg0bM7vMrpg_KDk9oPvV";
+
+  const trackOff =
+    /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) ||
+    location.protocol === "file:" ||
+    new URLSearchParams(location.search).has("notrack");
+
+  // che cosa ha colpito il click, in ordine di priorità
+  function trackTarget(e) {
+    if (!illustration.classList.contains("hidden")) return "illustrazione";
+    if (!dialogueBox.classList.contains("hidden")) return "dialogo";
+    if (dialogueDone) {
+      const o = objectAt(e.clientX, e.clientY);
+      if (o) return "oggetto:" + o.def.id;
+    }
+    return "sfondo";
+  }
+
+  function trackClick(e) {
+    if (trackOff || !TRACK_URL || !day) return;
+    const rect = stage.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    const xp = ((e.clientX - rect.left) / rect.width) * 100;
+    const yp = ((e.clientY - rect.top) / rect.height) * 100;
+    if (xp < 0 || xp > 100 || yp < 0 || yp > 100) return; // click fuori dal palco
+    const row = {
+      day: dayFolder,
+      x_pct: Math.round(xp * 10) / 10,
+      y_pct: Math.round(yp * 10) / 10,
+      target: trackTarget(e),
+    };
+    try {
+      fetch(TRACK_URL + "/rest/v1/clicks", {
+        method: "POST",
+        keepalive: true,                 // il POST parte anche se cambi pagina
+        headers: {
+          "Content-Type": "application/json",
+          apikey: TRACK_KEY,
+          Authorization: "Bearer " + TRACK_KEY,
+          Prefer: "return=minimal",
+        },
+        body: JSON.stringify(row),
+      }).catch(() => {});                // adblocker / DB giù: si ignora
+    } catch (_) { /* si ignora */ }
+  }
+
+  // capture=true: intercetta OGNI click sul palco prima che la
+  // logica del gioco lo consumi con stopPropagation()
+  stage.addEventListener("click", trackClick, true);
+
   init();
 })();
