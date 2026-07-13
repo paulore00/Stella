@@ -76,7 +76,7 @@ Fasi 1, 2, 3 **fatte**. Progetto Supabase `stella-analytics` creato (EU Frankfur
    git commit -m "Tracking anonimo dei click + heatmap privata"
    git push
    ```
-2. Aspetta ~1 minuto che GitHub Pages aggiorni, apri https://paulatolorenzo.github.io/Stella/ e fai **qualche click** (sfondo, un oggetto, il dialogo).
+2. Aspetta ~1 minuto che GitHub Pages aggiorni, apri https://paulatolorenzo.github.io/stelladaily/ e fai **qualche click** (sfondo, un oggetto, il dialogo).
 3. Su Supabase → **Table Editor → clicks**: devono comparire le righe. Se ci sono, funziona.
 4. Apri `heatmap.html` (doppio click): scegli il giorno → vedi i puntini.
 5. Prima del **lancio vero** svuota i click di prova: SQL Editor → `delete from clicks;`
